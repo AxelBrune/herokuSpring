@@ -1,0 +1,40 @@
+{{>Structure/header}}
+	<center><h1>Modifier un Script</h1></center>
+<form action="http://localhost:8091/script/submit/{{id}}" method="POST" class="ui form">
+	<div class="field">
+		<label class="ui huge label">Titre :</label><br>
+		<input type="text" name="title" placeholder="Title" value="{{script.title}}">
+	</div><br>
+	<div class="field">
+		<label class="ui huge label">Description :</label><br>
+		<textarea  name="description" placeholder="Description">{{script.description}}</textarea>
+	</div>
+	<div class="field">
+		<label class="ui huge label">Contenu :</label><br>
+		<textarea  name="content" placeholder="Contenu">{{script.content}}</textarea>
+	</div>
+	<div class="field">
+		<label class="ui huge label">Date de création :</label>
+		<input type="date" name="creationDate" value="{{script.creationDate}}">
+	</div><br>
+	<div class="field">
+		<label class="ui huge label">Catégorie du script :</label>
+		<select name="category" >
+		<option disabled selected>Choisir une catégorie</option>
+			{{#category}}
+				<option value="{{name}}">{{name}}</option>
+			{{/category}}
+		</select>
+	</div><br>
+	<div class="field">
+		<label class="ui huge label">Langage du script :</label>
+		<select name="language" >
+		<option disabled selected>Choisir un langage</option>
+			{{#language}}
+				<option value="{{name}}">{{name}}</option>
+			{{/language}}
+		</select>
+	</div>
+	<center><button type="submit" class="ui violet button">Modifier</button></center>
+</form>
+{{>Structure/footer}}

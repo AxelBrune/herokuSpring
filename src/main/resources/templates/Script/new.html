@@ -1,0 +1,40 @@
+{{>Structure/header}}
+<h3>Ajouter un Script</h3>
+<form action="http://localhost:8091/script/submit" method="POST">
+	<div class="form-group">
+		<label>Titre :</label><br>
+		<input type="text" name="title" placeholder="Title">
+	</div><br>
+	<div class="form-group">
+		<label>Description :</label><br>
+		<textarea  name="description" placeholder="Description"></textarea>
+	</div>
+	<div class="form-group">
+		<label>Contenu :</label><br>
+		<textarea  name="content" placeholder="Contenu"></textarea>
+	</div>
+	<div class="form-group">
+		<label>Date de création :</label>
+		<input type="date" name="creationDate">
+	</div><br>
+	<div class="form-group">
+		<label>Catégorie du script :</label>
+		<select name="category" >
+		<option disabled selected>Choisir une catégorie</option>
+			{{#category}}
+				<option value="{{name}}">{{name}}</option>
+			{{/category}}
+		</select>
+	</div><br>
+	<div class="form-group">
+		<label>Langage du script :</label>
+		<select name="language" >
+		<option disabled selected>Choisir un langage</option>
+			{{#language}}
+				<option value="{{name}}">{{name}}</option>
+			{{/language}}
+		</select>
+	</div>
+	<button type="submit" class="btn btn-success">Ajouter</button>
+</form>
+{{>Structure/footer}}

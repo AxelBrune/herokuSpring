@@ -1,0 +1,33 @@
+{{>Structure/header}}
+<br>
+<a class="ui red button" href="http://localhost:8091/index">Déconnexion</a>
+<h1>Bonjour {{utilisateur.identity}} <br>{{utilisateur.email}}</h1>
+<br><br>
+<h3>Scripts enregistrés</h3><br>
+<a class="ui green button" href="http://localhost:8091/search"><i class="inverted circular search link icon green"></i>Rechercher un script</a>
+<table class="ui selectable inverted table">
+  <thead class="">
+    <tr>
+      <th scope="col">Titre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Langage</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#utilisateur.scripts}}
+    <tr>
+      <td>{{title}}</td>
+      <td>{{description}}</td>
+      <td>{{creationDate}}</td>
+      <td>{{language.name}}</td>
+      <td>{{category.name}}</td>
+      <td><a href="http://localhost:8091/script/{{id}}" class="ui blue button">Editer</a></td>   
+    </tr>
+    {{/utilisateur.scripts}}
+  </tbody>
+</table><br><br><br>
+<center><a href="script/new" class="ui violet button">Ajouter un script</a></center>
+{{>Structure/footer}}
